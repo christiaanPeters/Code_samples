@@ -50,15 +50,7 @@ void ScanList::AddScan(int serialNumber)
                 {
                     // Start of list
                     scans = newScan;
-                    //std::cout << "Prepending at start to: " << scans->getNext()->getSerialNumber() << std::endl;
                 }
-                /*Scan *curscan = scans;
-                std::cout << "Current list: " << std::endl;
-                while (curscan != NULL)
-                {
-                    std::cout << "  SN: " << curscan->getSerialNumber() << "RC: " << curscan->getTimesRecycled() << std::endl;
-                    curscan = curscan->getNext();
-                }*/
                 return;
             }
             else
