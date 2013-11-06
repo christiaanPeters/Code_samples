@@ -14,27 +14,12 @@ static int start;
 static int end;
 
 static void history_init(void)
-/* pre:  true
- * post: 'start' en 'end' staan op 0,
- *       zodat 'history[]' is geinitialiseerd
- */
 {
 	start = 0;
 	end = 0;
 }
 
 static void history_put(BYTE c)
-/* pre : 0 <= 'start'< HISTORY_SIZE
- 0 <= 'end'  < HISTORY_SIZE
- 'start' geeft aan waar met lezen gestart kan worden en
- 'end' geeft aan waar het laatste byte geplaatst is.
- Dus start, start+1, ... end-1 bevatten bytes die al geplaatst zijn
- post: byte 'c' op positie 'end' van array 'history[]' geschreven
- 'end' opgehoogd, maar als vervolgens geldt:
- Als 'end' == HISTORY_SIZE dan 'end' = 0
- Als 'end' == 'start' dan 'start' ophogen
- Als 'start' == HISTORY_SIZE dan 'start' = 0
- */
 {
 
 	history[end] = c;
@@ -50,23 +35,14 @@ static void history_put(BYTE c)
 }
 
 static BYTE history_get(int i)
-/* pre:  true
- * post: return de byte uit 'history[]' die staat op een offset 'i'
- *       ten opzichte van 'start'
- */
 {
 	int index = start + i;
 	return history[index];
 }
 
 extern void history_test(void)
-/* pre:  true
- * post: een test is uitgevoerd die aantoont dat de history module goed werkt
- */
+ // a test to show that the history module works correctly.
 {
-	/*
-	 * TODO (II)
-	 */
 	history_init();
 
 	history_put('a');
@@ -87,13 +63,13 @@ extern void history_test(void)
 }
 
 extern bool unzip_dump_hex(const char * filename_in, const char * filename_out)
-/* pre:  'filename_in' is de naam van een bestaand, gecomprimeerd bestand
- *       'filename_out' is een nul-terminated string
- * post: 'filename_out' is de naam van een tekstbestand waarin alle bytes
- *       van 'filename_in' zijn weergegeven als 2 hexadecimale symbolen
- *       elke regel bevat een adres en 10 bytes.
- *       'filename_out' bevat dus een hexadecimale dump van alle bytes
- *       van 'filename_in'
+ /* pre:    "filename_in" is the name of a current comprimated file
+ *          "filename_out is a null-terminated string
+ *  post:   "filename_out" is a .txt file which shows all bytes
+ *          of "filename_in" as 2 hexadecimal symbols,
+ *          each line contains an address and 10 bytes.
+ *          thus, "filename_out" contains an hexadecdimal dump of all the bytes
+ *          from "filename_in"
  */
 {
 	FILE * file_in;
@@ -127,12 +103,11 @@ extern bool unzip_dump_hex(const char * filename_in, const char * filename_out)
 
 extern bool unzip_dump_header_and_text(const char * filename_in,
 		const char * filename_out)
-/* pre:  'filename_in' is de naam van een bestaand, gecomprimeerd bestand
- *       'filename_out' is een nul-terminated string
- * post: 'filename_out' is de naam van een tekstbestand waarin de inhoud
- *       van 'filename_in' als volgt is weergegeven:
- *       bij een header van type 1: 2 getallen (positie & lengte)
- *       bij een header van type 0: alle karakters die behoren bij deze header
+ /* pre:    "filename_in" is the name of a current comprimated file
+ *          "filename_out is a null-terminated string
+ *  post:   "filename_out" is the name of a .txt file which contains the following information:
+ *          if it's an header of type 1: 2 numbers (position & length)
+ *          if it's an header of type 0: all character of the header.
  */
 {
 	FILE * file_in;
@@ -171,15 +146,13 @@ extern bool unzip_dump_header_and_text(const char * filename_in,
 }
 
 extern bool unzip_lz77(const char * filename_in, const char * filename_out)
-/* pre:  'filename_in' is de naam van een bestaand, gecomprimeerd bestand
- *       'filename_out' is een nul-terminated string
- * post: als de files niet geopend kunnen worden
- *          return false
- *       anders
- *          file 'filename_out' is aangemaakt bestaande uit de
- *          LZ77 omzetting van het bestand 'filename_in'
+ /* pre:    "filename_in" is the name of a current comprimated file
+ *          "filename_out is a null-terminated string
+ *  post    if the files cannot be opened: return false, else
+ *          file "filename_out" is the unzipped file of "filename_in"
  *          return true
  */
+
 {
 	FILE * file_in;
 	FILE * file_out;
