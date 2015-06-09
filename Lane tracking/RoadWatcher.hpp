@@ -9,8 +9,7 @@ using namespace cv;
 class RoadWatcher
 {
 public:
-	int derp;
-	void init();
+	RoadWatcher();
 	Mat Calculate_And_Draw_RoadLines(Mat frame);
 	Mat Detect_And_Draw_Traffic_Signs(Mat frame);
 

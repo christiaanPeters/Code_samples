@@ -26,7 +26,6 @@ int main( int argc, char** argv )
   while(true)
   {
     cap >> frame; // get a new frame from camera
-    watcher.init();
     Mat frameWithLines = watcher.Calculate_And_Draw_RoadLines(frame);
     Mat totalFrame = watcher.Detect_And_Draw_Traffic_Signs(frameWithLines);
 

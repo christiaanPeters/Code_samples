@@ -9,6 +9,25 @@
 #define ILOWV 50
 #define IHIGHV 255
 
+RoadWatcher::RoadWatcher()
+{
+  lowestThreshold = Scalar(ILOWH, ILOWS, ILOWV);
+  highestThreshold = Scalar(IHIGHH, IHIGHS, IHIGHV);
+
+  SimpleBlobDetector::Params params;
+
+    //setting parameters for the blobdetection.
+  params.minDistBetweenBlobs = 1.0f; //minimum distance between blobs to decide wether it's 1 blob or multiple
+  params.filterByInertia = false;
+  params.filterByConvexity = false;
+  params.filterByColor = false;
+  params.filterByCircularity = false;
+  params.filterByArea = true;
+  params.minArea = 50.0f; //minimum area to define it's a blob.
+
+  detector = SimpleBlobDetector(params);
+}
+
 Mat RoadWatcher::bitwise_And(Mat hueg, Mat probablisticHueg)
 {
 	Mat BitwiseBlack;
@@ -32,26 +51,6 @@ Mat RoadWatcher::Draw_RoadLines_On_Matrix(Mat originalFrame, Mat linesMatrix, in
     line(originalFrame, Point(l[0], l[1]), Point(l[2], l[3]), Scalar(0,0,255), 3, CV_AA);
   }
   return originalFrame;
-}
-
-
-void RoadWatcher::init()
-{
-	lowestThreshold = Scalar(ILOWH, ILOWS, ILOWV);
-	highestThreshold = Scalar(IHIGHH, IHIGHS, IHIGHV);
-
-	SimpleBlobDetector::Params params;
-
-  	//setting parameters for the blobdetection.
-	params.minDistBetweenBlobs = 1.0f; //minimum distance between blobs to decide wether it's 1 blob or multiple
-	params.filterByInertia = false;
-	params.filterByConvexity = false;
-	params.filterByColor = false;
-	params.filterByCircularity = false;
-	params.filterByArea = true;
-	params.minArea = 50.0f; //minimum area to define it's a blob.
-
- 	detector = SimpleBlobDetector(params);
 }
 
 Mat RoadWatcher::Draw_HoughLines(Mat source, vector<Vec2f> lines)
