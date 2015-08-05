@@ -1,0 +1,9 @@
+D:\Dropbox\fontys\p11-p12\TSE6\TSE_design_patterns\decorator_pattern\decorator_pattern\bin\Debug\decorator_pattern.exe.config
+D:\Dropbox\fontys\p11-p12\TSE6\TSE_design_patterns\decorator_pattern\decorator_pattern\obj\Debug\decorator_pattern.exe
+D:\Dropbox\fontys\p11-p12\TSE6\TSE_design_patterns\decorator_pattern\decorator_pattern\obj\Debug\decorator_pattern.pdb
+D:\Dropbox\fontys\p11-p12\TSE6\TSE_design_patterns\decorator_pattern\decorator_pattern\bin\Debug\decorator_pattern.exe
+D:\Dropbox\fontys\p11-p12\TSE6\TSE_design_patterns\decorator_pattern\decorator_pattern\bin\Debug\decorator_pattern.pdb
+D:\Dropbox\fontys\p11-p12\TSE6\TSE_design_patterns\decorator_pattern\decorator_pattern\obj\Debug\decorator_pattern.Form1.resources
+D:\Dropbox\fontys\p11-p12\TSE6\TSE_design_patterns\decorator_pattern\decorator_pattern\obj\Debug\decorator_pattern.Properties.Resources.resources
+D:\Dropbox\fontys\p11-p12\TSE6\TSE_design_patterns\decorator_pattern\decorator_pattern\obj\Debug\decorator_pattern.csproj.GenerateResource.Cache
+D:\Users\Christiaan\Desktop\To show\TSE\decorator_pattern\code\decorator_pattern\bin\Debug\decorator_pattern.exe.config
